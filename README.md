@@ -22,5 +22,5 @@ This repository contains **Dockerfile** of [Ghost](https://www.ghost.org/) for [
 
     docker run -d -p 80:2368 dockerfile/ghost
 
-* Blog: http://<host>
-* Admin: http://<host>/ghost
+* Blog: `http://<host>`
+* Admin: `http://<host>/ghost`
