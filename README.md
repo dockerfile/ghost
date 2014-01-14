@@ -22,7 +22,7 @@ This repository contains **Dockerfile** of [Ghost](https://www.ghost.org/) for [
 
     docker run -d -p 80:2368 dockerfile/ghost
 
-#### Customize Ghost server by attaching override directory
+#### Customize Ghost by attaching override directory
 
     docker run -d -p 80:2368 -v <override-dir>:/ghost-override dockerfile/ghost
 
