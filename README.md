@@ -30,7 +30,7 @@ where `<override-dir>` is an absolute path of a directory that could contain:
 
   - `config.js`: custom config file
   - `content/data`: persistent/shared data
-  - `content/theme`: more themes
+  - `content/themes`: more themes
   - *or anything else you want to override...*
 
 After few seconds, open `http://<host>` for blog or `http://<host>/ghost` for admin page.
