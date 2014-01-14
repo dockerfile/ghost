@@ -20,7 +20,17 @@ This repository contains **Dockerfile** of [Ghost](https://www.ghost.org/) for [
 
 ### Usage
 
-    docker run -d -p 80:2368 -v <data-dir-on-host>:/ghost/content/data dockerfile/ghost
+    docker run -d -p 80:2368 dockerfile/ghost
 
-* Blog: `http://<host>`
-* Admin: `http://<host>/ghost`
+#### Customize Ghost server by attaching override directory
+
+    docker run -d -p 80:2368 -v <override-dir>:/ghost-override dockerfile/ghost
+
+where `<override-dir>` is an absolute path of a directory that could contain:
+
+  - `config.js`: custom config file
+  - `content/data`: persistent/shared data
+  - `content/theme`: more themes
+  - *or anything else you want to override...*
+
+After few seconds, open `http://<host>` for blog or `http://<host>/ghost` for admin page.

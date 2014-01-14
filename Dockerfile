@@ -8,13 +8,14 @@
 FROM dockerfile/nodejs
 
 # Install Ghost
-RUN wget https://ghost.org/zip/ghost-0.4.0.zip -O ghost.zip
-RUN mkdir /ghost && unzip ghost.zip -d /ghost && rm -f ghost.zip
+RUN mkdir -p /ghost
+RUN cd /ghost && wget https://ghost.org/zip/ghost-0.4.0.zip -O ghost.zip
+RUN cd /ghost && unzip ghost.zip && rm -f ghost.zip
 RUN cd /ghost && npm install --production
 RUN sed 's/127.0.0.1/0.0.0.0/' /ghost/config.example.js > /ghost/config.js
 
-# Mount data directory.
-VOLUME /ghost/content/data
+# Mount volumes.
+VOLUME /ghost-override
 
 # Define working directory.
 WORKDIR /ghost
@@ -24,4 +25,4 @@ EXPOSE 2368
 
 # Define an entry point.
 ENV NODE_ENV production
-CMD ["npm", "start"]
+CMD ["bash", "-c", "\\cp -frs /ghost-override/* /ghost && npm start"]
