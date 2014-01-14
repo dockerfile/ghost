@@ -20,9 +20,12 @@ VOLUME /ghost-override
 # Define working directory.
 WORKDIR /ghost
 
+# Add files.
+ADD start.bash /ghost-start
+
 # Expose ports.
 EXPOSE 2368
 
 # Define an entry point.
 ENV NODE_ENV production
-CMD ["bash", "-c", "\\cp -frs /ghost-override/* /ghost && npm start"]
+CMD ["bash", "/ghost-start"]
