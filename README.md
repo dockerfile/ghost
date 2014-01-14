@@ -20,7 +20,7 @@ This repository contains **Dockerfile** of [Ghost](https://www.ghost.org/) for [
 
 ### Usage
 
-    docker run -d -p 80:2368 dockerfile/ghost
+    docker run -d -p 80:2368 -v <data-dir-on-host>:/ghost/content/data dockerfile/ghost
 
 * Blog: `http://<host>`
 * Admin: `http://<host>/ghost`
