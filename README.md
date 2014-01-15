@@ -34,5 +34,3 @@ where `<override-dir>` is an absolute path of a directory that could contain:
   - *or anything else you want to override...*
 
 After few seconds, open `http://<host>` for blog or `http://<host>/ghost` for admin page.
-
-docker run -d -p 80:2368 -v ~/ghost:/ghost-override dockerfile/ghost
