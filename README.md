@@ -22,7 +22,7 @@ This repository contains **Dockerfile** of [Ghost](https://www.ghost.org/) for [
 
     docker run -d -p 80:2368 dockerfile/ghost
 
-#### Customize Ghost by attaching override directory
+#### Customizing Ghost
 
     docker run -d -p 80:2368 -v <override-dir>:/ghost-override dockerfile/ghost
 
@@ -31,6 +31,5 @@ where `<override-dir>` is an absolute path of a directory that could contain:
   - `config.js`: custom config file copied from [here](https://github.com/TryGhost/Ghost/blob/master/config.example.js) (you must replace `127.0.0.1` with `0.0.0.0`)
   - `content/data`: persistent/shared data
   - `content/themes`: more themes
-  - *or anything else you want to override...*
 
 After few seconds, open `http://<host>` for blog or `http://<host>/ghost` for admin page.
