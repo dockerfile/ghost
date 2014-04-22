@@ -9,6 +9,7 @@ OVERRIDE="/ghost-override"
 
 CONFIG="config.js"
 DATA="content/data"
+IMAGES="content/images"
 THEMES="content/themes"
 
 cd "$GHOST"
@@ -17,6 +18,11 @@ cd "$GHOST"
 mkdir -p "$OVERRIDE/$DATA"
 rm -fr "$DATA"
 ln -s "$OVERRIDE/$DATA" "content"
+
+# Symlink images directory
+mkdir -p "$OVERRIDE/$IMAGES"
+rm -fr "$IMAGES"
+ln -s "$OVERRIDE/$IMAGES" "$IMAGES"
 
 # Symlink config file.
 if [[ -f "$OVERRIDE/$CONFIG" ]]; then
