@@ -23,7 +23,7 @@ ENV NODE_ENV production
 VOLUME ["/data", "/ghost-override"]
 
 # Define working directory.
-WORKDIR "/ghost"
+WORKDIR /ghost
 
 # Define default command.
 CMD ["bash", "/ghost-start"]
