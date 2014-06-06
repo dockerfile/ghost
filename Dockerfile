@@ -28,7 +28,7 @@ VOLUME ["/data", "/ghost-override"]
 WORKDIR /ghost
 
 # Define default command.
-CMD ["bash", "npm start"]
+CMD ["npm", "start"]
 
 # Expose ports.
 EXPOSE 2368
