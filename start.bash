@@ -17,7 +17,7 @@ cd "$GHOST"
 # Symlink data directory.
 mkdir -p "$OVERRIDE/$DATA"
 rm -fr "$DATA"
-ln -s "$OVERRIDE/$DATA" "content"
+ln -s "$OVERRIDE/$DATA" "$DATA"
 
 # Symlink images directory
 mkdir -p "$OVERRIDE/$IMAGES"
