@@ -17,8 +17,6 @@ RUN \
   npm install --production && \
   sed 's/127.0.0.1/0.0.0.0/' /ghost/config.example.js > /ghost/config.js
 
-# Add files.
-ADD start.bash /ghost-start
 
 # Set environment variables.
 ENV NODE_ENV production
@@ -30,7 +28,7 @@ VOLUME ["/data", "/ghost-override"]
 WORKDIR /ghost
 
 # Define default command.
-CMD ["bash", "/ghost-start"]
+CMD ["npm", "start"]
 
 # Expose ports.
 EXPOSE 2368
