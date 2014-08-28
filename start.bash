@@ -39,4 +39,13 @@ if [[ -d "$OVERRIDE/$THEMES" ]]; then
   done
 fi
 
+useradd ghost --home /ghost
+chown -R ghost.ghost /ghost
+chown -R ghost.ghost /data
+chown -R ghost.ghost /ghost-override
+
+su ghost <<'EOF'
+cd "$GHOST"
+export NODE_ENV=production
 npm start
+EOF
