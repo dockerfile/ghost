@@ -16,6 +16,7 @@ RUN \
   cd /ghost && \
   npm install --production && \
   sed 's/127.0.0.1/0.0.0.0/' /ghost/config.example.js > /ghost/config.js && \
+  mkdir -p /ghost-override && \
   useradd ghost --home /ghost && \
   chown -R ghost:ghost /data /ghost /ghost-override
 
