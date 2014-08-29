@@ -17,7 +17,7 @@ RUN \
   npm install --production && \
   sed 's/127.0.0.1/0.0.0.0/' /ghost/config.example.js > /ghost/config.js && \
   useradd ghost --home /ghost && \
-  chown -R ghost:ghost /data, /ghost, /ghost-override
+  chown -R ghost:ghost /data /ghost /ghost-override
 
 # Add files.
 ADD start.bash /ghost-start
