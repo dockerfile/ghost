@@ -1,7 +1,4 @@
 #!/bin/bash
-#
-# start.bash
-#
 
 GHOST="/ghost"
 OVERRIDE="/ghost-override"
