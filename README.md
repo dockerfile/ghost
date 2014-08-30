@@ -4,7 +4,7 @@
 This repository contains **Dockerfile** of [Ghost](https://www.ghost.org/) for [Docker](https://www.docker.com/)'s [automated build](https://registry.hub.docker.com/u/dockerfile/ghost/) published to the public [Docker Hub Registry](https://registry.hub.docker.com/).
 
 
-### Dependencies
+### Base Docker Image
 
 * [dockerfile/nodejs](http://dockerfile.github.io/#/nodejs)
 
