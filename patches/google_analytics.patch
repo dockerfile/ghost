@@ -1,6 +1,7 @@
 --- content/themes/casper/default.orig.hbs	2014-09-20 10:41:25.000000000 +0200
 +++ content/themes/casper/default.hbs	2014-09-20 10:36:17.000000000 +0200
-@@ -33,4 +33,13 @@
+@@ -20,4 +20,13 @@
+
      {{ghost_head}}
 +
 +    <script>
