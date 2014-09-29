@@ -34,3 +34,13 @@ where `<override-dir>` is an absolute path of a directory that could contain:
   - `content/themes/`: more themes
 
 After few seconds, open `http://<host>` for blog or `http://<host>/ghost` for admin page.
+
+### Patches
+
+This repository also apply the following patches:
+
+ * Google Analytics
+
+#### Google Analytics
+
+In order to make it working you have to set the `GA_ID` environment variable when you start the container.

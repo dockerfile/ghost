@@ -30,6 +30,12 @@ VOLUME ["/data", "/ghost-override"]
 # Define working directory.
 WORKDIR /ghost
 
+# ~~~~ Patches ~~~~~
+# Add Google Analytics script
+RUN mkdir /ghost/patches/
+ADD patches/google_analytics.patch /ghost/patches/google_analytics.patch
+RUN patch -p0 -u < patches/google_analytics.patch
+
 # Define default command.
 CMD ["bash", "/ghost-start"]
 

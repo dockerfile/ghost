@@ -35,6 +35,9 @@ if [[ -d "$OVERRIDE/$THEMES" ]]; then
   done
 fi
 
+# Insert the Google Analytics ID
+sed -i 's/UA-XXXXXXX-XX/'$GA_ID'/' /ghost/content/themes/casper/default.hbs
+
 # Start Ghost
 chown -R ghost:ghost /data /ghost /ghost-override
 su ghost << EOF
