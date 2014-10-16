@@ -8,8 +8,6 @@ DATA="content/data"
 IMAGES="content/images"
 THEMES="content/themes"
 
-cd "$GHOST"
-
 # Symlink data directory.
 mkdir -p "$OVERRIDE/$DATA"
 rm -fr "$DATA"
@@ -36,8 +34,4 @@ if [[ -d "$OVERRIDE/$THEMES" ]]; then
 fi
 
 # Start Ghost
-chown -R ghost:ghost /data /ghost /ghost-override
-su ghost << EOF
-cd "$GHOST"
 NODE_ENV=${NODE_ENV:-production} npm start
-EOF
