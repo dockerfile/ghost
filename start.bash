@@ -36,6 +36,8 @@ if [[ -d "$OVERRIDE/$THEMES" ]]; then
 fi
 
 # Start Ghost
+groupadd ghost --gid ${gid:-1000}
+useradd ghost --home /ghost --uid ${uid:-1000} --gid ${gid:-1000}
 chown -R ghost:ghost /data /ghost /ghost-override
 su ghost << EOF
 cd "$GHOST"
