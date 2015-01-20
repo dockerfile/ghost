@@ -7,7 +7,7 @@
 # Pull base image.
 FROM dockerfile/nodejs
 
-# Install Ghost
+# Install Ghost & forever
 RUN \
   cd /tmp && \
   wget https://ghost.org/zip/ghost-latest.zip && \
@@ -18,7 +18,8 @@ RUN \
   sed 's/127.0.0.1/0.0.0.0/' /ghost/config.example.js > /ghost/config.js && \
   mkdir /ghost-override && \
   useradd ghost --home /ghost && \
-  chown -R ghost:ghost /ghost /ghost-override /data
+  chown -R ghost:ghost /ghost /ghost-override /data && \
+  /usr/local/bin/npm install forever -g
 
 # Add files.
 ADD start.bash /ghost-start
