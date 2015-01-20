@@ -16,7 +16,9 @@ RUN \
   cd /ghost && \
   npm install --production && \
   sed 's/127.0.0.1/0.0.0.0/' /ghost/config.example.js > /ghost/config.js && \
-  useradd ghost --home /ghost
+  mkdir /ghost-override && \
+  useradd ghost --home /ghost && \
+  chown -R ghost:ghost /ghost /ghost-override /data
 
 # Add files.
 ADD start.bash /ghost-start
@@ -32,6 +34,9 @@ WORKDIR /ghost
 
 # Define default command.
 CMD ["bash", "/ghost-start"]
+
+# Run as ghost
+USER ghost
 
 # Expose ports.
 EXPOSE 2368
