@@ -37,6 +37,9 @@ if [[ -d "$OVERRIDE/$THEMES" ]]; then
 fi
 
 # Start Ghost
+chown -R ghost:ghost /data /ghost /ghost-override
+su ghost
+
 if [[ "$NODE_ENV" == "development" ]]; then
   COMMAND="NODE_ENV=$NODE_ENV forever --watchDirectory=$WATCH_DIRECTORY -w index.js"
 else

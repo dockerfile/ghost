@@ -15,11 +15,9 @@ RUN \
   rm -f ghost-latest.zip && \
   cd /ghost && \
   npm install --production && \
+  npm install forever && \
   sed 's/127.0.0.1/0.0.0.0/' /ghost/config.example.js > /ghost/config.js && \
-  mkdir /ghost-override && \
-  useradd ghost --home /ghost && \
-  chown -R ghost:ghost /ghost /ghost-override /data && \
-  /usr/local/bin/npm install forever -g
+  useradd ghost --home /ghost
 
 # Add files.
 ADD start.bash /ghost-start
@@ -35,9 +33,6 @@ WORKDIR /ghost
 
 # Define default command.
 CMD ["bash", "/ghost-start"]
-
-# Run as ghost
-USER ghost
 
 # Expose ports.
 EXPOSE 2368
