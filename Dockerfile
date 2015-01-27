@@ -7,7 +7,7 @@
 # Pull base image.
 FROM dockerfile/nodejs
 
-# Install Ghost
+# Install Ghost & forever
 RUN \
   cd /tmp && \
   wget https://ghost.org/zip/ghost-latest.zip && \
@@ -15,6 +15,7 @@ RUN \
   rm -f ghost-latest.zip && \
   cd /ghost && \
   npm install --production && \
+  npm install forever -g && \
   sed 's/127.0.0.1/0.0.0.0/' /ghost/config.example.js > /ghost/config.js && \
   useradd ghost --home /ghost
 

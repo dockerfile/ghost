@@ -8,7 +8,8 @@ DATA="content/data"
 IMAGES="content/images"
 THEMES="content/themes"
 
-cd "$GHOST"
+NODE_ENV=${NODE_ENV:-production}
+WATCH_DIRECTORY=${WATCH_DIRECTORY:-$THEMES}
 
 # Symlink data directory.
 mkdir -p "$OVERRIDE/$DATA"
@@ -37,7 +38,12 @@ fi
 
 # Start Ghost
 chown -R ghost:ghost /data /ghost /ghost-override
-su ghost << EOF
-cd "$GHOST"
-NODE_ENV=${NODE_ENV:-production} npm start
-EOF
+su ghost
+
+if [[ "$NODE_ENV" == "development" ]]; then
+  COMMAND="NODE_ENV=$NODE_ENV forever --watchDirectory=$WATCH_DIRECTORY -w index.js"
+else
+  COMMAND="NODE_ENV=$NODE_ENV npm start"
+fi
+
+echo "$COMMAND" ; eval $COMMAND
